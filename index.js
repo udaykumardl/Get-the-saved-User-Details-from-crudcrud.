@@ -10,7 +10,7 @@ function handleFormSubmit(event){
         email ,
         phone
     }
-    axios.post("https://crudcrud.com/api/98c4f0712e654294a4525fbba7a7a79c/appoinmentdata", obj)
+    axios.post("https://crudcrud.com/api/bc266a7b79c14c5bac20e269a66af6a7/appoinmentdata", obj)
     .then((response)=>{
         showUserOnScreen(response.data)
         console.log(response)
@@ -22,7 +22,7 @@ function handleFormSubmit(event){
    
 }
 window.addEventListener("DOMContentLoaded",()=>{
- axios.get("https://crudcrud.com/api/98c4f0712e654294a4525fbba7a7a79c/appoinmentdata")
+ axios.get("https://crudcrud.com/api/bc266a7b79c14c5bac20e269a66af6a7/appoinmentdata")
     .then((response)=>{
         console.log(response)
 
@@ -44,6 +44,7 @@ function showUserOnScreen(obj){
     const childnode=`<li id=${obj._id}> ${obj.name} -${obj.email}-${obj.phone} 
                     <button onclick=DeleteUser('${obj._id}') >Delete User</button>
                     <button onclick="editUserDetails('${obj._id}','${obj.name}','${obj.email}','${obj.phone}')">Edit User</button>
+                    
 </li> `
     parentNode.innerHTML=parentNode.innerHTML+childnode
 }
@@ -58,7 +59,7 @@ function editUserDetails(id,name,email,phone){
   DeleteUser(id)
 }
 function DeleteUser(id){
-    axios.delete(`https://crudcrud.com/api/98c4f0712e654294a4525fbba7a7a79c/appoinmentdata/${id}`)
+    axios.delete(`https://crudcrud.com/api/bc266a7b79c14c5bac20e269a66af6a7/appoinmentdata/${id}`)
     .then((res)=>{
         removeUserFromScreen(id)
     })
